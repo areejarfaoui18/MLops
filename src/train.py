@@ -3,6 +3,7 @@ Main API module for serving ML model predictions using FastAPI.
 """
 import mlflow
 import mlflow.sklearn
+import mlflow.pyfunc  # add this import
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -33,13 +34,15 @@ def train_model():
     acc = accuracy_score(y_test, preds)
     print(f"Model accuracy: {acc}")
 
-    # MLflow logging
     with mlflow.start_run() as run:
         mlflow.log_param("max_iter", 200)
         mlflow.log_metric("accuracy", acc)
         mlflow.sklearn.log_model(model, name="model")
         print(f"Run ID: {run.info.run_id}")
 
+        # Save model artifact locally (directly from sklearn model)
+        mlflow.sklearn.save_model(model, "./model_artifact")
+        print("Model artifact saved locally at ./model_artifact")
 
 if __name__ == "__main__":
     train_model()

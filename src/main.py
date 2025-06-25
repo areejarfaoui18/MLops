@@ -19,7 +19,7 @@ def get_model():
     global model
     if model is None:
         print("Loading model...")
-        model = mlflow.pyfunc.load_model("runs:/2a3055fae72e47bbb72eea6aae4bd555/model")
+        model = mlflow.pyfunc.load_model("./model_artifact")
         print("Model loaded")
     return model
 

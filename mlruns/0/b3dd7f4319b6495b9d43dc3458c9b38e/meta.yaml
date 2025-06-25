@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/ija/Documents/mlops-ME/Mlops/mlruns/0/b3dd7f4319b6495b9d43dc3458c9b38e/artifacts
+end_time: 1750880782665
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b3dd7f4319b6495b9d43dc3458c9b38e
+run_name: delicate-finch-950
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750880740597
+status: 4
+tags: []
+user_id: ija

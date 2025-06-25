@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/ija/Documents/mlops-ME/Mlops/mlruns/0/83be170a97e14d05bae34eac63c5ae03/artifacts
+end_time: 1750880928311
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 83be170a97e14d05bae34eac63c5ae03
+run_name: casual-deer-812
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750880882923
+status: 3
+tags: []
+user_id: ija
