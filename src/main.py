@@ -1,13 +1,19 @@
+
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 import mlflow.pyfunc
 import numpy as np
 
+
 mlflow.set_tracking_uri("file:///C:/Users/ija/Documents/mlops-ME/MLops/mlruns")
+
 
 app = FastAPI()
 
+
 model = None
+
 
 def get_model():
     global model
@@ -17,8 +23,10 @@ def get_model():
         print("Model loaded")
     return model
 
+
 class PredictRequest(BaseModel):
     features: list
+
 
 @app.post("/predict")
 def predict(request: PredictRequest):
@@ -26,6 +34,7 @@ def predict(request: PredictRequest):
     data = np.array(request.features).reshape(1, -1)
     prediction = model.predict(data)
     return {"prediction": prediction.tolist()}
+
 
 @app.get("/")
 def read_root():

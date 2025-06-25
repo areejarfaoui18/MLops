@@ -4,3 +4,9 @@ mlflow
 scikit-learn
 pandas
 numpy
+flake8
+pylint
+pytest
+httpx
+coverage
+pytest-cov
