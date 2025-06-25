@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/0/1d941230184b447aaf93101a3e2d5e99/artifacts
+end_time: 1750847454651
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1d941230184b447aaf93101a3e2d5e99
+run_name: hilarious-moose-504
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750847433814
+status: 4
+tags: []
+user_id: ija
