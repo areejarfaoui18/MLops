@@ -1,5 +1,6 @@
 import sys
 import os
+import tempfile
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
@@ -26,7 +27,8 @@ def test_train_model_runs(monkeypatch, capsys):
     monkeypatch.setattr(train_module.mlflow.sklearn, "log_model", mock_log_model)
     
     # Run the training function
-    train_module.train_model()
+    with tempfile.TemporaryDirectory() as tmpdir:
+        train_module.train_model(model_output_path=tmpdir)
     
     # Capture printed output
     captured = capsys.readouterr()

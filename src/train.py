@@ -11,7 +11,7 @@ from sklearn.metrics import accuracy_score
 
 mlflow.set_tracking_uri("file:///C:/Users/ija/Documents/mlops-ME/Mlops/mlruns")
 
-def train_model():
+def train_model(model_output_path="./model_artifact"):
     print("Starting training...")
 
     # Load data
@@ -41,7 +41,7 @@ def train_model():
         print(f"Run ID: {run.info.run_id}")
 
         # Save model artifact locally (directly from sklearn model)
-        mlflow.sklearn.save_model(model, "./model_artifact")
+        mlflow.sklearn.save_model(model, model_output_path)
         print("Model artifact saved locally at ./model_artifact")
 
 if __name__ == "__main__":
