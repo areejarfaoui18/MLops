@@ -8,3 +8,4 @@ flake8
 pylint
 pytest
 httpx
+prometheus-client
