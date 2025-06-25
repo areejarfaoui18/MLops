@@ -1,10 +1,11 @@
 import mlflow
-mlflow.set_tracking_uri("http://localhost:5000")
 import mlflow.sklearn
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
+
+mlflow.set_tracking_uri("file:///C:/Users/ija/Documents/mlops-ME/Mlops/mlruns")
 
 def train_model():
     print("Starting training...")
@@ -30,11 +31,12 @@ def train_model():
     print(f"Model accuracy: {acc}")
 
     # MLflow logging
-    with mlflow.start_run():
+    with mlflow.start_run() as run:
         mlflow.log_param("max_iter", 200)
         mlflow.log_metric("accuracy", acc)
-        mlflow.sklearn.log_model(model, "model")
-    print("MLflow logging done")
+        mlflow.sklearn.log_model(model, name="model")
+        print(f"Run ID: {run.info.run_id}")
+
 
 if __name__ == "__main__":
     train_model()

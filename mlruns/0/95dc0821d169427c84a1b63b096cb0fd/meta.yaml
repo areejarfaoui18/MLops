@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/ija/Documents/mlops-ME/Mlops/mlruns/0/95dc0821d169427c84a1b63b096cb0fd/artifacts
+end_time: 1750852955469
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 95dc0821d169427c84a1b63b096cb0fd
+run_name: silent-flea-954
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750852937189
+status: 4
+tags: []
+user_id: ija

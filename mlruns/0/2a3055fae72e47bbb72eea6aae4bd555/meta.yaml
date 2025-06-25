@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/ija/Documents/mlops-ME/Mlops/mlruns/0/2a3055fae72e47bbb72eea6aae4bd555/artifacts
+end_time: 1750852981543
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2a3055fae72e47bbb72eea6aae4bd555
+run_name: judicious-bat-446
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750852965408
+status: 3
+tags: []
+user_id: ija

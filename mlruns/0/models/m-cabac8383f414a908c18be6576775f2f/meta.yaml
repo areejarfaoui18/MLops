@@ -1,0 +1,11 @@
+artifact_location: file:///C:/Users/ija/Documents/mlops-ME/Mlops/mlruns/0/models/m-cabac8383f414a908c18be6576775f2f/artifacts
+creation_timestamp: 1750852937313
+experiment_id: '0'
+last_updated_timestamp: 1750852937313
+lifecycle_stage: active
+model_id: m-cabac8383f414a908c18be6576775f2f
+model_type: null
+name: model
+source_run_id: 95dc0821d169427c84a1b63b096cb0fd
+status: 1
+status_message: null

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/ija/Documents/mlops-ME/Mlops/mlruns/0/2c3cd9dd3e2b4a6081686aac88b378ac/artifacts
+end_time: 1750851727110
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2c3cd9dd3e2b4a6081686aac88b378ac
+run_name: invincible-deer-445
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750851700346
+status: 3
+tags: []
+user_id: ija
