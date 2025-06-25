@@ -1,0 +1,15 @@
+{
+  "minReplicas": 0,
+  "maxReplicas": 10,
+  "rules": [
+    {
+      "name": "http-scale",
+      "custom": {
+        "type": "http",
+        "metadata": {
+          "concurrentRequests": "50"
+        }
+      }
+    }
+  ]
+}
