@@ -1,0 +1,9 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "azure-fastapi"
+    metrics_path: /metrics
+    scheme: https
+    static_configs:
+      - targets: ["mlops-api.lemonmeadow-0ebd18c7.westeurope.azurecontainerapps.io"]

@@ -46,8 +46,15 @@ jobs:
         run: |
           pylint src/ || true
 
-      - name: Run unit tests
-        run: pytest
+      - name: Run unit tests with coverage
+        run: |
+          pytest --cov=src --cov-report=term-missing --cov-report=xml
+
+      - name: Upload coverage report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage.xml
 
       - name: Build and push container image to registry
         uses: azure/container-apps-deploy-action@v2
