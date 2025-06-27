@@ -1,11 +1,13 @@
 
 
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 import mlflow.pyfunc
 import numpy as np
 from prometheus_client import start_http_server, Summary, Counter, generate_latest, CONTENT_TYPE_LATEST, Histogram
 from fastapi.responses import Response
+from typing import List
+
 
 mlflow.set_tracking_uri("file:///C:/Users/ija/Documents/mlops-ME/MLops/mlruns")
 
