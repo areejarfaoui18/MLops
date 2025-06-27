@@ -8,12 +8,22 @@ services:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
 
   grafana:
-    image: grafana/grafana
-    ports:
-      - "3000:3000"
-    volumes:
-      - grafana-storage:/var/lib/grafana
-      - ./grafana.ini:/etc/grafana/grafana.ini
+      image: grafana/grafana
+      ports:
+        - "3000:3000"
+      env_file:
+        - .env
+      environment:
+        - GF_SMTP_ENABLED=${GRAFANA_SMTP_ENABLED}
+        - GF_SMTP_HOST=${GRAFANA_SMTP_HOST}
+        - GF_SMTP_USER=${GRAFANA_SMTP_USER}
+        - GF_SMTP_PASSWORD=${GRAFANA_SMTP_PASSWORD}
+        - GF_SMTP_FROM_ADDRESS=${GRAFANA_SMTP_FROM_ADDRESS}
+        - GF_SMTP_FROM_NAME=${GRAFANA_SMTP_FROM_NAME}
+        - GF_SMTP_SKIP_VERIFY=${GRAFANA_SMTP_SKIP_VERIFY}
+      volumes:
+        - grafana-storage:/var/lib/grafana
 
 volumes:
   grafana-storage:
+

@@ -9,7 +9,11 @@ from fastapi.responses import Response
 
 mlflow.set_tracking_uri("file:///C:/Users/ija/Documents/mlops-ME/MLops/mlruns")
 
-app = FastAPI()
+app = FastAPI(
+    title="MLOps Prediction API",
+    description="A FastAPI app that serves an ML model and exposes Prometheus metrics.",
+    version="1.0.0"
+)
 
 # Total requests counter, labeled by HTTP method and endpoint
 REQUEST_COUNT = Counter(
@@ -44,13 +48,25 @@ def get_model():
     return model
 
 
+# Request schema
 class PredictRequest(BaseModel):
-    features: list
+    features: List[float] = Field(
+        ...,
+        example=[0.5, 1.2, 3.4, 5.6],
+        description="List of numeric features for model prediction"
+    )
 
 
 from fastapi import Request
 
-@app.post("/predict")
+# Predict endpoint
+@app.post(
+    "/predict",
+    summary="Make a prediction",
+    description="Returns the prediction from the ML model based on input features.",
+    response_model=dict,
+    responses={200: {"description": "Successful prediction"}, 500: {"description": "Prediction failed"}}
+)
 def predict(request: PredictRequest, http_request: Request):
     method = http_request.method
     endpoint = http_request.url.path
@@ -66,6 +82,6 @@ def predict(request: PredictRequest, http_request: Request):
             PREDICTION_EXCEPTIONS.inc()
             raise
 
-@app.get("/")
+@app.get("/", summary="Health check", description="Returns basic health check status.")
 def read_root():
     return {"message": "API is running!"}
