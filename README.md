@@ -52,7 +52,7 @@ It was designed as part of a DevOps-focused project with permission to use MLOps
 
   * Lints the code with pylint
   * Runs unit tests with pytest
-  * Measures code coverage
+  * Measures code coverage using `coverage.py` (integrated into pytest)
   * Builds and pushes the Docker image
   * Deploys to Azure on each push to `main`
 
@@ -81,13 +81,15 @@ It was designed as part of a DevOps-focused project with permission to use MLOps
 ├── Dockerfile                    # Container build file
 ├── requirements.txt              # Python dependencies
 ├── src/
-│   └── train.py                  # Model training script
+│   └── train.py 
+    ├── main.py                      # FastAPI app exposing predict and metrics endpoints
+                 # Model training script
 ├── tests/
 │   ├── main_test.py              # Tests for FastAPI app
 │   └── train_test.py             # Tests for training script
 ├── model_artifact/              # Saved ML model (MLflow format)
 ├── prometheus.yml               # Prometheus config file
-├── grafana.ini (optional)       # SMTP config for alerting
+├── .env       # SMTP config for alerting
 └── locustfile.py                # Load testing script
 ```
 
@@ -138,7 +140,7 @@ locust -f locustfile.py --host https://<your-api-endpoint>
 
 ## 🔔 Alerting
 
-* Configure SMTP in `grafana.ini` for email alerts.
+* Configure SMTP in `.env` for email alerts.
 
 ---
 
@@ -153,6 +155,8 @@ locust -f locustfile.py --host https://<your-api-endpoint>
   * `MLOPSAPI_REGISTRY_PASSWORD`
 
 ---
+* A `.env` file can be used locally for Grafana SMTP credentials. Be sure to add `.env` to `.gitignore`.
+
 
 ## ✅ Status
 
